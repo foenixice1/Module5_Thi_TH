@@ -1,0 +1,36 @@
+<div class="container" xmlns="http://www.w3.org/1999/html">
+  <h2>Table Product</h2>
+  <p></p>
+  <button type="button" class="btn btn-success" routerLink="/books/create">
+    Create
+  </button>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr *ngFor="let b of books; index as i">
+      <td>{{i + 1}}</td>
+      <td><a [routerLink]="['/books/details/', b.id]">{{b.title}}</a></td>
+      <td>{{b.author}}</td>
+      <td>
+        <button class="btn btn-secondary" [routerLink]="['/books/edit/', b.id]">
+          Edit
+        </button>
+      </td>
+      <td>
+        <button class="btn btn-secondary" [routerLink]="['/books/delete/', b.id]">
+          Delete
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
